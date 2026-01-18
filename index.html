@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SyncShare Pro Trainer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="setup-screen" class="container">
+        <h2 class="brand">SyncShare PRO</h2>
+        <p>Выберите режим обучения:</p>
+        
+        <div class="menu-buttons">
+            <button class="btn-check" onclick="startMarathon()" style="background: #28a745; margin-bottom: 12px; width: 100%;">
+                📚 Пройти все вопросы (Марафон)
+            </button>
+            <button class="btn-check" onclick="startExam()" style="width: 100%;">
+                ⏱ Начать экзамен (32 вопроса / 40 мин)
+            </button>
+        </div>
+
+        <hr style="margin: 20px 0; border: 0; border-top: 1px solid #eee;">
+        
+        <button class="btn-view-fav" onclick="showFavorites()" style="width: 100%;">
+            ⭐ Мои ошибки / Избранное
+        </button>
+        
+        <div style="margin-top: 20px;">
+            <button class="btn-reset" onclick="resetStats()">Сбросить общую статистику</button>
+        </div>
+    </div>
+
+    <div id="quiz-container" class="container" style="display: none;">
+        <div class="header">
+            <div class="top-row">
+                <span id="timer" class="timer-badge">40:00</span>
+                <span id="q-counter" class="type-badge">Вопрос 1 из 32</span>
+            </div>
+            
+            <div class="progress-bar-container">
+                <div id="progress-line" class="progress-line"></div>
+            </div>
+        </div>
+
+        <div id="quiz-area">
+            <div id="question" class="question-text"></div>
+            <div id="options" class="options-list"></div>
+        </div>
+        
+        <div id="feedback"></div>
+        
+        <div class="controls">
+            <button id="next-btn" class="btn-check" onclick="handleNext()">Ответить и далее →</button>
+        </div>
+    </div>
+
+    <div id="fav-modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeFavorites()">&times;</span>
+            <h3>⭐ Работа над ошибками</h3>
+            <div id="fav-list">
+                </div>
+            <div style="margin-top: 20px;">
+                <button onclick="clearFavorites()" class="btn-clear-all" style="padding: 10px; border-radius: 8px;">
+                    Очистить весь список
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="questions.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>
